@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import web.dao.CarDao;
+import web.service.CarService;
 
 
 @Controller
@@ -14,11 +15,11 @@ import web.dao.CarDao;
 public class CarController {
 
     @Autowired
-    private CarDao carDao;
+    private CarService carService;
 
     @GetMapping()
     public String printCars(@RequestParam(required = false) Integer count, ModelMap model) {
-        model.addAttribute("cars", carDao.printCars(count));
+        model.addAttribute("cars", carService.printCars(count));
         return "cars";
     }
 }

@@ -6,7 +6,7 @@ import web.model.Car;
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
+
 public class CarDao {
     private List<String> cars;
 
@@ -21,11 +21,7 @@ public class CarDao {
         cars.add(new Car(6, "model-6", "gray").toString());
     }
 
-    public List<String> printCars(Integer count) {
-        if (count == null){
-            return cars;
-        } else {
-            return count < 5 ? cars.stream().limit(count).toList() : cars;
-        }
+    public List<String> printCars() {
+        return cars;
     }
 }
