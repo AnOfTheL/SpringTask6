@@ -8,9 +8,9 @@ import java.util.List;
 
 
 public class CarDao {
-    private List<String> cars;
+    private static List<String> cars;
 
-    {
+    static {
         cars = new ArrayList<>();
 
         cars.add(new Car(1, "model-1", "white").toString());
@@ -21,7 +21,7 @@ public class CarDao {
         cars.add(new Car(6, "model-6", "gray").toString());
     }
 
-    public List<String> printCars() {
-        return cars;
+    public static List<String> printCars() {
+        return List.copyOf(cars);
     }
 }
